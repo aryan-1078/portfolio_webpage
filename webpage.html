@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aryan Kore - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -26,6 +28,24 @@
             text-align: center;
         }
 
+        .profile-section {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        
+        .profile-image {
+            width: 200px;
+            height: 250px; 
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+            display: block;
+            margin: 0 auto 1rem auto;
+        }
+
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -103,17 +123,17 @@
             gap: 0.5rem;
         }
 
-        .project-item ul {
+        .project-item ul, .hobbies-list {
             list-style-type: none;
             padding-left: 1rem;
         }
 
-        .project-item li {
+        .project-item li, .hobbies-list li {
             margin-bottom: 0.5rem;
             position: relative;
         }
 
-        .project-item li::before {
+        .project-item li::before, .hobbies-list li::before {
             content: "•";
             color: #1e3c72;
             font-weight: bold;
@@ -151,9 +171,13 @@
     </style>
 </head>
 <body>
+    
     <header>
         <div class="container">
-            <h1>Aryan Kore</h1>
+            <div class="profile-section">
+                <img src="pic.jpg" alt="Aryan Kore" class="profile-image">
+                <h1>Aryan Kore</h1>
+            </div>
             <div class="profile-info">
                 <p>Computer Science Engineering Student</p>
                 <div class="contact-info">
@@ -171,7 +195,9 @@
         </div>
     </header>
 
+    
     <main class="container">
+       
         <section class="section">
             <h2>Education</h2>
             <div class="education-item">
@@ -191,6 +217,7 @@
             </div>
         </section>
 
+        
         <section class="section">
             <h2>Projects</h2>
             <div class="project-item">
@@ -213,6 +240,7 @@
             </div>
         </section>
 
+        
         <section class="section">
             <h2>Skills</h2>
             <div class="skills-grid">
@@ -228,14 +256,26 @@
                 <div class="skill-item">Leadership</div>
             </div>
         </section>
+
+        
+        <section class="section">
+            <h2>Hobbies</h2>
+            <ul class="hobbies-list">
+                <li>Playing various sports</li>
+                <li>Travelling</li>
+                <li>Dancing</li>
+                <li>Music</li>
+                <li>Learning new things</li>
+            </ul>
+        </section>
     </main>
 
     <div id="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    
     <script>
-        // Scroll to top button functionality
         const scrollButton = document.getElementById('scroll-top');
         
         window.onscroll = function() {
@@ -253,7 +293,6 @@
             });
         });
 
-        // Add smooth scroll to all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
