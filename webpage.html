@@ -7,7 +7,6 @@
     <title>Aryan Kore - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        
         * {
             margin: 0;
             padding: 0;
@@ -15,6 +14,36 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Added Navigation Styles */
+        nav {
+            background: #1e3c72;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Your existing styles */
         body {
             line-height: 1.6;
             color: #333;
@@ -33,7 +62,6 @@
             margin-bottom: 1.5rem;
         }
 
-        
         .profile-image {
             width: 200px;
             height: 250px; 
@@ -45,7 +73,6 @@
             margin: 0 auto 1rem auto;
         }
 
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -66,6 +93,7 @@
             margin: 2rem 0;
             border-radius: 10px;
             box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            scroll-margin-top: 80px; /* Added for smooth scrolling */
         }
 
         h1 {
@@ -142,6 +170,16 @@
         }
 
         @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .nav-link {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -171,7 +209,6 @@
     </style>
 </head>
 <body>
-    
     <header>
         <div class="container">
             <div class="profile-section">
@@ -195,10 +232,25 @@
         </div>
     </header>
 
-    
+    <!-- Added Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#about" class="nav-link">About Me</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#hobbies" class="nav-link">Hobbies</a>
+        </div>
+    </nav>
+
     <main class="container">
-       
-        <section class="section">
+        <!-- Added About Me Section -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I am Aryan Kore, currently pursuing my B.Tech in Computer Science Engineering in Symbiosis Institute of Technology, Pune. My extracurricular and academic accomplishments attest to my commitment and collaborative abilities. I'm excited to learn more about technology and make a constructive contribution to society.</p>
+        </section>
+
+        <section id="education" class="section">
             <h2>Education</h2>
             <div class="education-item">
                 <h3>Bachelor of Technology in Computer Science and Engineering</h3>
@@ -217,8 +269,7 @@
             </div>
         </section>
 
-        
-        <section class="section">
+        <section id="projects" class="section">
             <h2>Projects</h2>
             <div class="project-item">
                 <h3>Sales Prediction using ML algorithms</h3>
@@ -240,8 +291,7 @@
             </div>
         </section>
 
-        
-        <section class="section">
+        <section id="skills" class="section">
             <h2>Skills</h2>
             <div class="skills-grid">
                 <div class="skill-item">Python</div>
@@ -257,8 +307,7 @@
             </div>
         </section>
 
-        
-        <section class="section">
+        <section id="hobbies" class="section">
             <h2>Hobbies</h2>
             <ul class="hobbies-list">
                 <li>Playing various sports</li>
@@ -274,7 +323,6 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    
     <script>
         const scrollButton = document.getElementById('scroll-top');
         
@@ -293,12 +341,17 @@
             });
         });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Enhanced smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
